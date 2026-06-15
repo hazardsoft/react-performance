@@ -68,7 +68,7 @@ Confirm each of these against your flame charts before writing the fix.
 ## Optimizations Applied
 
 - [x] `useMemo` for computed values (filtered/sorted list, available years)
-- [ ] `useCallback` for event handlers
+- [x] `useCallback` for event handlers
 - [ ] `React.memo` on `CountryCard`, `DataTable`, controls
 - [ ] Proper `key` props for all lists/tables
 - [ ] Virtualization for the country list
