@@ -81,42 +81,42 @@ _Notes / commits: fill in_
 
 ### Interaction A: Sort countries
 
-- **Commit duration**: \_\_\_ ms
-- **Render duration**: \_\_\_ ms
-- **# commits**: \_\_\_
-- **Screenshot**: ![optimized sort](screenshots/optimized/a-sort.png)
+- **Commit duration**: 700 ms
+- **Render duration**: 63 ms
+- **# commits**: 1
+- **Screenshot**: ![optimized sort](screenshots/optimized/optimized-sort-countries.png)
 
 ### Interaction B: Search countries (type "United")
 
-- **Commit duration**: \_\_\_ ms
-- **Render duration**: \_\_\_ ms
-- **# commits**: \_\_\_
-- **Screenshot**: ![optimized search](screenshots/optimized/b-search.png)
+- **Commit duration**: 900 ms
+- **Render duration**: 59 ms
+- **# commits**: 12
+- **Screenshot**: ![optimized search](screenshots/optimized/optimized-search-countries.png)
 
 ### Interaction C: Change year
 
-- **Commit duration**: \_\_\_ ms
-- **Render duration**: \_\_\_ ms
-- **# commits**: \_\_\_
-- **Screenshot**: ![optimized year](screenshots/optimized/c-year.png)
+- **Commit duration**: 2900 ms
+- **Render duration**: 143 ms
+- **# commits**: 2
+- **Screenshot**: ![optimized year](screenshots/optimized/optimized-change-year.png)
 
 ### Interaction D: Toggle column
 
-- **Commit duration**: \_\_\_ ms
-- **Render duration**: \_\_\_ ms
-- **# commits**: \_\_\_
-- **Screenshot**: ![optimized column](screenshots/optimized/d-column.png)
+- **Commit duration**: 4500 ms
+- **Render duration**: 9 ms
+- **# commits**: 6
+- **Screenshot**: ![optimized column](screenshots/optimized/optimized-toggle-column.png)
 
 ---
 
 ## Summary of Improvements
 
+Render duration (the React render work the optimizations target):
+
 | Interaction      | Baseline (ms) | Optimized (ms) | Improvement |
 | ---------------- | ------------- | -------------- | ----------- |
-| Sort countries   | \_\_\_        | \_\_\_         | \_\_\_%     |
-| Search countries | \_\_\_        | \_\_\_         | \_\_\_%     |
-| Change year      | \_\_\_        | \_\_\_         | \_\_\_%     |
-| Toggle column    | \_\_\_        | \_\_\_         | \_\_\_%     |
-| **Average**      | **\_\_\_**    | **\_\_\_**     | **\_\_\_%** |
-
-> Improvement % = (baseline − optimized) / baseline × 100.
+| Sort countries   | 1187          | 63             | 94.7%       |
+| Search countries | 521           | 59             | 88.7%       |
+| Change year      | 1204          | 143            | 88.1%       |
+| Toggle column    | 1055          | 9              | 99.1%       |
+| **Average**      | **991.8**     | **68.5**       | **93.1%**   |
