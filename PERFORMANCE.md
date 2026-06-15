@@ -71,7 +71,7 @@ Confirm each of these against your flame charts before writing the fix.
 - [x] `useCallback` for event handlers
 - [x] `React.memo` on `CountryCard`, `DataTable`, controls
 - [x] Proper `key` props for all lists/tables
-- [ ] Virtualization for the country list
+- [x] Virtualization for the country list
 
 _Notes / commits: fill in_
 
