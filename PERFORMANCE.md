@@ -50,6 +50,33 @@ before/after comparison is valid:
 
 ---
 
+## Bottlenecks Identified
+
+Confirm each of these against your flame charts before writing the fix.
+
+| # | Location | Problem | Fix (Phase 2) |
+| - | -------- | ------- | ------------- |
+| 1 | `app.tsx` single `state` object + handlers recreated each render | Every interaction re-renders all 254 cards | `useCallback` handlers, `React.memo` children |
+| 2 | `country-list.tsx` filter+sort runs every render | `createYearDataMap()` called inside sort comparator → O(n log n) map builds | `useMemo` for filtered/sorted list, precompute maps |
+| 3 | `country-card.tsx` rebuilds `createYearDataMap()` every render | Heavy per-card work × 254 | `React.memo` + memoize map |
+| 4 | `country-list.tsx:47`, `data-table.tsx:25` `key={index}` | Index keys defeat reconciliation | stable keys (`country.id`, column name) |
+| 5 | `app.tsx` `getAvailableYears(data)` every render | Iterates 50,411 rows each render | `useMemo` on `data` |
+| 6 | 254 cards rendered to DOM at once | Thousands of nodes | **Virtualization** (react-window) |
+
+---
+
+## Optimizations Applied
+
+- [x] `useMemo` for computed values (filtered/sorted list, available years)
+- [ ] `useCallback` for event handlers
+- [ ] `React.memo` on `CountryCard`, `DataTable`, controls
+- [ ] Proper `key` props for all lists/tables
+- [ ] Virtualization for the country list
+
+_Notes / commits: fill in_
+
+---
+
 ## Optimized Measurements
 
 ### Interaction A: Sort countries

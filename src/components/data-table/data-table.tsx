@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import type { YearData } from '../../types';
 import { formatNumber } from '../../utils/format-utils';
 
@@ -10,13 +11,11 @@ type DataTableProps = {
 };
 
 export const DataTable = ({ data, year, columns }: DataTableProps) => {
-  const yearData = data.filter((d) => d.year === year);
+  const record = useMemo(() => data.find((d) => d.year === year), [data, year]);
 
-  if (yearData.length === 0) {
+  if (!record) {
     return <div className={styles.noData}>No data available for year {year}</div>;
   }
-
-  const record = yearData[0];
 
   return (
     <table className={styles.table}>
