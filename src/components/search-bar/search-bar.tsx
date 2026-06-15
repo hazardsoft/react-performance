@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './search-bar.module.css';
 
 type SearchBarProps = {
@@ -5,7 +6,7 @@ type SearchBarProps = {
   onChange: (value: string) => void;
 };
 
-export const SearchBar = ({ value, onChange }: SearchBarProps) => {
+const SearchBarComponent = ({ value, onChange }: SearchBarProps) => {
   return (
     <div className={styles.container}>
       <label htmlFor="search" className={styles.label}>
@@ -22,3 +23,5 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
     </div>
   );
 };
+
+export const SearchBar = memo(SearchBarComponent);
